@@ -1,1 +1,0 @@
-docker-compose up -d --build && docker-compose exec api python3 manage.py migrate

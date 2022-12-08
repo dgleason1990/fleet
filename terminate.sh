@@ -1,0 +1,1 @@
+docker-compose down && docker volume rm examples_folder_postgres_data   

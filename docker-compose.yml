@@ -4,8 +4,6 @@ services:
     user: postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-      # - ./products.csv:/src/sample_data/products.csv
-      # - ./transactions.csv:/src/sample_data/transactions.csv
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
 
@@ -19,8 +17,6 @@ services:
       - "8000:8000"
     volumes:
       - ./demo-backend:/demo-backend 
-      # - ./products.csv:/src/sample_data/products.csv
-      # - ./transactions.csv:/src/sample_data/transactions.csv
     command: bash -c "python3 manage.py runserver 0.0.0.0:8000"
     environment:
       - POSTGRES_PASSWORD=''
