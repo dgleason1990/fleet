@@ -1,0 +1,2 @@
+PRODUCTS - The products page never specified details on groupings so groupings will be on unique columns name, pricing_amount, icon_url,
+                     metro_area, transaction_name, discount_amount, discount_description

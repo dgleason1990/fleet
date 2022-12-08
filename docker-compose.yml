@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:13
+    user: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      # - ./products.csv:/src/sample_data/products.csv
+      # - ./transactions.csv:/src/sample_data/transactions.csv
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+  api:
+    depends_on:
+      - db
+    links:
+      - db
+    build: ./demo-backend        
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./demo-backend:/demo-backend 
+      # - ./products.csv:/src/sample_data/products.csv
+      # - ./transactions.csv:/src/sample_data/transactions.csv
+    command: bash -c "python3 manage.py runserver 0.0.0.0:8000"
+    environment:
+      - POSTGRES_PASSWORD=''
+      - POSTGRES_USER=''
+      - POSTGRES_DB=example
+
+  web:
+    build: ./demo-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./demo-frontend:/demo-frontend
+    stdin_open: true
+
+volumes:
+  postgres_data: 

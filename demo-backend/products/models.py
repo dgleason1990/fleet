@@ -1,0 +1,28 @@
+from django.db import models
+
+# Create your models here.
+class Products(models.Model):
+    provider_name = models.TextField(null=True)
+    name = models.TextField(null=True) 
+    mode_type = models.TextField(null=True) 
+    fleet_partner = models.TextField(null=True) 
+    transaction_name = models.TextField(null=True) 
+    discount_amount = models.IntegerField(null=True)
+    discount_description = models.TextField(null=True) 
+    country = models.TextField(null=True) 
+    metro_area = models.TextField(null=True) 
+    merchant_network_id = models.TextField(null=True) 
+    merchant_category = models.TextField(null=True) 
+    pricing_type = models.TextField(null=True) 
+    pricing_unit = models.TextField(null=True) 
+    pricing_amount = models.DecimalField(decimal_places=4 , max_digits= 8,null=True)
+    website_url = models.TextField(null=True) 
+    icon_url = models.TextField(null=True) 
+    description = models.TextField(null=True)
+    setup_instructions = models.TextField(null=True) 
+    refund_policies = models.TextField(null=True) 
+    show_user = models.BooleanField(null=True)
+    coming_soon = models.TextField(null=True) 
+    provider_support = models.TextField(null=True) 
+    support_phone_number = models.TextField(null=True) 
+    support_email = models.TextField(null=True) 
